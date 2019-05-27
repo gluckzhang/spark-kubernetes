@@ -1,11 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: minikube-ingress
-  annotations:
+  name: spark-master-ingress
+  namespace: spark
 spec:
   rules:
-  - host: spark-kubernetes
+  - host: spark.kth-assert.net
     http:
       paths:
       - path: /

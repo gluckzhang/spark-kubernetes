@@ -3,7 +3,7 @@ FROM java:openjdk-8-jdk
 
 # define spark and hadoop versions
 ENV HADOOP_VERSION 2.7.3
-ENV SPARK_VERSION 2.2.1
+ENV SPARK_VERSION 2.4.3
 
 # download and install hadoop
 RUN mkdir -p /opt && \
@@ -22,6 +22,6 @@ RUN mkdir -p /opt && \
     echo Spark ${SPARK_VERSION} installed in /opt
 
 # add scripts and update spark default config
-ADD common.sh spark-master spark-worker /
+ADD common.sh spark-master.sh spark-worker.sh /
 ADD spark-defaults.conf /opt/spark/conf/spark-defaults.conf
 ENV PATH $PATH:/opt/spark/bin
