@@ -4,6 +4,7 @@ metadata:
   name: spark-master
   namespace: spark
 spec:
+  clusterIP: None
   ports:
     - name: webui
       port: 8080

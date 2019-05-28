@@ -13,6 +13,7 @@ spec:
       labels:
         component: spark-master
     spec:
+      hostname: spark-master
       containers:
         - name: spark-master
           image: gluckzhang/spark-hadoop:2.4.3
