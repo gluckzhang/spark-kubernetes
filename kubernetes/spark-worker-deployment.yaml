@@ -16,9 +16,16 @@ spec:
       containers:
         - name: spark-worker
           image: gluckzhang/spark-hadoop:2.4.3
+          env:
+          - name: MEMORY_LIMIT
+            value: "2048M" # should be equal to memory request
           command: ["/spark-worker.sh"]
           ports:
             - containerPort: 8081
           resources:
             requests:
-              cpu: 100m
+              cpu: "100m"
+              memory: "2048M"
+            limits:
+              cpu: "200m"
+              memory: "2048M"

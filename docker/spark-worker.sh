@@ -7,4 +7,10 @@ if ! getent hosts spark-master; then
   exit 0
 fi
 
-start-slave.sh spark://spark-master:7077 --webui-port 8081 --properties-file /opt/spark/conf/spark-defaults.conf
+if [ -z $MEMORY_LIMIT ]; then
+  memory='1G'
+else
+  memory=$MEMORY_LIMIT
+fi
+
+start-slave.sh spark://spark-master:7077 --webui-port 8081 --memory $memory --properties-file /opt/spark/conf/spark-defaults.conf
