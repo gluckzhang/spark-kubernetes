@@ -4,4 +4,9 @@
 
 echo "$(hostname -i) spark-master" >> /etc/hosts
 
-start-master.sh --host spark-master --port 7077 --webui-port 8080 --properties-file /opt/spark/conf/spark-defaults.conf
+/opt/spark/sbin/start-master.sh --host spark-master --port 7077 --webui-port 8080 --properties-file /opt/spark/conf/spark-defaults.conf
+
+while :
+do
+  sleep 3
+done

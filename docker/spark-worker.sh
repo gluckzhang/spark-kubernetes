@@ -13,4 +13,9 @@ else
   memory=$MEMORY_LIMIT
 fi
 
-start-slave.sh spark://spark-master:7077 --webui-port 8081 --memory $memory --properties-file /opt/spark/conf/spark-defaults.conf
+/opt/spark/sbin/start-slave.sh spark://spark-master:7077 --webui-port 8081 --memory $memory --properties-file /opt/spark/conf/spark-defaults.conf
+
+while :
+do
+  sleep 3
+done
