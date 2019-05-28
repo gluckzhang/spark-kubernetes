@@ -7,10 +7,4 @@ if ! getent hosts spark-master; then
   exit 0
 fi
 
-/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077 --webui-port 8081
-
-
-
-memory = '10g'
-pyspark_submit_args = ' --driver-memory ' + memory + ' pyspark-shell'
-os.environ["PYSPARK_SUBMIT_ARGS"] = pyspark_submit_args
+start-slave.sh spark://spark-master:7077 --webui-port 8081 --properties-file /opt/spark/conf/spark-defaults.conf
