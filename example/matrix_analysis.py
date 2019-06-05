@@ -1,23 +1,10 @@
-#
-# Licensed to the Apache Software Foundation (ASF) under one or more
-# contributor license agreements.  See the NOTICE file distributed with
-# this work for additional information regarding copyright ownership.
-# The ASF licenses this file to You under the Apache License, Version 2.0
-# (the "License"); you may not use this file except in compliance with
-# the License.  You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# Filename: matrix_analysis.py
 
 from __future__ import print_function
 
-import sys
+import sys, getopt, logging
 
 from pyspark.sql import SparkSession
 from pyspark.mllib.linalg import Matrices
@@ -26,6 +13,14 @@ from pyspark.mllib.linalg.distributed import CoordinateMatrix
 from pyspark.mllib.linalg.distributed import BlockMatrix
 
 import scipy.io as sio
+
+MATRIX_FILE_PATH = ''
+
+def main():
+    handle_args(sys.argv[1:])
+    with open(MATRIX_FILE_PATH) as file:
+        matrix = sio.mmread(file)
+        do_spark(matrix)
 
 def do_spark(matrix):
     spark = SparkSession\
@@ -48,7 +43,34 @@ def do_spark(matrix):
 
     spark.stop()
 
+def handle_args(argv):
+    global MATRIX_FILE_PATH
+
+    try:
+        opts, args = getopt.getopt(argv, "f:", ["file=", "help"])
+    except getopt.GetoptError as error:
+        logging.error(error)
+        print_help_info()
+        sys.exit(2)
+
+    for opt, arg in opts:
+        if opt == "--help":
+            print_help_info()
+            sys.exit()
+        elif opt in ("-f", "--file"):
+            MATRIX_FILE_PATH = arg
+
+    if MATRIX_FILE_PATH == '':
+        logging.error("You should use -f or --file to specify the path to your matrix")
+        print_help_info()
+        sys.exit(2)
+
+def print_help_info():
+    print('')
+    print('MatrixAnalysis Tool Help Info')
+    print('    matrix_analysis.py -f <matrix_file_path>')
+    print('or: matrix_analysis.py --file=<matrix_file_path>')
+
 if __name__ == "__main__":
-    with open("crystm01.mtx") as file:
-        matrix = sio.mmread(file)
-        do_spark(matrix)
+    logging.basicConfig(level=logging.INFO)
+    main()
