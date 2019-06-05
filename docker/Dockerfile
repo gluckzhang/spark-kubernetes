@@ -1,5 +1,5 @@
 # base image
-FROM java:openjdk-8-jdk
+FROM openjdk:8u212-b04-jdk-stretch
 
 # define spark and hadoop versions
 ENV HADOOP_VERSION 2.7.3
@@ -20,6 +20,10 @@ RUN mkdir -p /opt && \
         tar -zx && \
     ln -s spark-${SPARK_VERSION}-bin-hadoop2.7 spark && \
     echo Spark ${SPARK_VERSION} installed in /opt
+
+# download and install python modules
+RUN apt-get update && \
+apt-get install -y python-numpy python-scipy
 
 # add scripts and update spark default config
 ADD common.sh spark-master.sh spark-worker.sh /
