@@ -21,6 +21,7 @@ import sys
 
 from pyspark.sql import SparkSession
 from pyspark.mllib.linalg import Matrices
+from pyspark.mllib.linalg.distributed import MatrixEntry
 from pyspark.mllib.linalg.distributed import CoordinateMatrix
 from pyspark.mllib.linalg.distributed import BlockMatrix
 
@@ -30,13 +31,20 @@ def do_spark(matrix):
     spark = SparkSession\
         .builder\
         .appName("MatrixAnalysis")\
-        .config("spark.executor.memory", "2G")\
+        .config("spark.driver.memory", "1536M")\
+        .config("spark.executor.memory", "1024M")\
+        .config("spark.sql.shuffle.partitions", 1000)\
         .getOrCreate()
 
-    dense_matrix = Matrices.dense(4875, 4875, matrix.toarray().flatten())
-    rdd = spark.sparkContext.parallelize([((0, 0), dense_matrix), ((0, 1), dense_matrix)])
-    block_matrix = BlockMatrix(rdd, 1024, 1024)
-    print(block_matrix.add(block_matrix).toLocalMatrix())
+    entries = list()
+    for i,j,v in zip(matrix.row, matrix.col, matrix.data):
+        entries.append(MatrixEntry(i, j, v))
+
+    rdd = spark.sparkContext.parallelize(entries)
+
+    coo_matrix = CoordinateMatrix(rdd)
+    block_matrix = coo_matrix.toBlockMatrix(1024, 1024)
+    print(block_matrix.transpose().toLocalMatrix())
 
     spark.stop()
 
