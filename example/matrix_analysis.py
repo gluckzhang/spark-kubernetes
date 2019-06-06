@@ -39,7 +39,8 @@ def do_spark(matrix):
 
     coo_matrix = CoordinateMatrix(rdd)
     block_matrix = coo_matrix.toBlockMatrix(1024, 1024)
-    print(block_matrix.transpose().toLocalMatrix())
+    transposed_matrix = block_matrix.transpose()
+    logging.info(transposed_matrix.toLocalMatrix())
 
     spark.stop()
 
