@@ -1,0 +1,113 @@
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+19/06/07 12:12:22 INFO SparkContext: Running Spark version 2.4.3
+19/06/07 12:12:22 INFO SparkContext: Submitted application: MatrixAnalysis
+19/06/07 12:12:22 INFO SecurityManager: Changing view acls to: root
+19/06/07 12:12:22 INFO SecurityManager: Changing modify acls to: root
+19/06/07 12:12:22 INFO SecurityManager: Changing view acls groups to: 
+19/06/07 12:12:22 INFO SecurityManager: Changing modify acls groups to: 
+19/06/07 12:12:22 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root); groups with view permissions: Set(); users  with modify permissions: Set(root); groups with modify permissions: Set()
+19/06/07 12:12:23 INFO Utils: Successfully started service 'sparkDriver' on port 36806.
+19/06/07 12:12:23 INFO SparkEnv: Registering MapOutputTracker
+19/06/07 12:12:23 INFO SparkEnv: Registering BlockManagerMaster
+19/06/07 12:12:23 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/06/07 12:12:23 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/06/07 12:12:23 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-1f75e938-a18c-4a71-a4fe-cdefba200130
+19/06/07 12:12:23 INFO MemoryStore: MemoryStore started with capacity 413.9 MB
+19/06/07 12:12:23 INFO SparkEnv: Registering OutputCommitCoordinator
+19/06/07 12:12:24 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+19/06/07 12:12:24 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://spark-master:4040
+19/06/07 12:12:25 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+19/06/07 12:12:25 INFO TransportClientFactory: Successfully created connection to spark-master/10.244.2.133:7077 after 373 ms (0 ms spent in bootstraps)
+19/06/07 12:12:26 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20190607121226-0022
+19/06/07 12:12:26 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36159.
+19/06/07 12:12:26 INFO NettyBlockTransferService: Server created on spark-master:36159
+19/06/07 12:12:26 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20190607121226-0022/0 on worker-20190607121158-10.244.4.22-40057 (10.244.4.22:40057) with 1 core(s)
+19/06/07 12:12:26 INFO StandaloneSchedulerBackend: Granted executor ID app-20190607121226-0022/0 on hostPort 10.244.4.22:40057 with 1 core(s), 6.0 GB RAM
+19/06/07 12:12:26 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/06/07 12:12:26 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20190607121226-0022/0 is now RUNNING
+19/06/07 12:12:26 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, spark-master, 36159, None)
+19/06/07 12:12:26 INFO BlockManagerMasterEndpoint: Registering block manager spark-master:36159 with 413.9 MB RAM, BlockManagerId(driver, spark-master, 36159, None)
+19/06/07 12:12:26 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, spark-master, 36159, None)
+19/06/07 12:12:26 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, spark-master, 36159, None)
+19/06/07 12:12:26 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+19/06/07 12:12:27 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/example/spark-warehouse').
+19/06/07 12:12:27 INFO SharedState: Warehouse path is 'file:/example/spark-warehouse'.
+19/06/07 12:12:28 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+19/06/07 12:12:29 INFO CoarseGrainedSchedulerBackend$DriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.244.4.22:59316) with ID 0
+19/06/07 12:12:29 INFO BlockManagerMasterEndpoint: Registering block manager 10.244.4.22:43165 with 3.3 GB RAM, BlockManagerId(0, 10.244.4.22, 43165, None)
+19/06/07 12:12:30 INFO SparkContext: Starting job: runJob at PythonRDD.scala:153
+19/06/07 12:12:30 INFO DAGScheduler: Got job 0 (runJob at PythonRDD.scala:153) with 1 output partitions
+19/06/07 12:12:30 INFO DAGScheduler: Final stage: ResultStage 0 (runJob at PythonRDD.scala:153)
+19/06/07 12:12:30 INFO DAGScheduler: Parents of final stage: List()
+19/06/07 12:12:30 INFO DAGScheduler: Missing parents: List()
+19/06/07 12:12:30 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[1] at RDD at PythonRDD.scala:53), which has no missing parents
+19/06/07 12:12:30 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 4.7 KB, free 413.9 MB)
+19/06/07 12:12:31 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 3.2 KB, free 413.9 MB)
+19/06/07 12:12:31 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on spark-master:36159 (size: 3.2 KB, free: 413.9 MB)
+19/06/07 12:12:31 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1161
+19/06/07 12:12:31 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (PythonRDD[1] at RDD at PythonRDD.scala:53) (first 15 tasks are for partitions Vector(0))
+19/06/07 12:12:31 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+19/06/07 12:12:31 WARN TaskSetManager: Stage 0 contains a task of very large size (385 KB). The maximum recommended task size is 100 KB.
+19/06/07 12:12:31 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 10.244.4.22, executor 0, partition 0, PROCESS_LOCAL, 394853 bytes)
+19/06/07 12:12:31 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.244.4.22:43165 (size: 3.2 KB, free: 3.3 GB)
+19/06/07 12:12:32 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1291 ms on 10.244.4.22 (executor 0) (1/1)
+19/06/07 12:12:32 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+19/06/07 12:12:32 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 36055
+19/06/07 12:12:32 INFO DAGScheduler: ResultStage 0 (runJob at PythonRDD.scala:153) finished in 2.152 s
+19/06/07 12:12:32 INFO DAGScheduler: Job 0 finished: runJob at PythonRDD.scala:153, took 2.368152 s
+19/06/07 12:12:36 INFO SparkContext: Starting job: reduce at CoordinateMatrix.scala:158
+19/06/07 12:12:36 INFO DAGScheduler: Got job 1 (reduce at CoordinateMatrix.scala:158) with 2 output partitions
+19/06/07 12:12:36 INFO DAGScheduler: Final stage: ResultStage 1 (reduce at CoordinateMatrix.scala:158)
+19/06/07 12:12:36 INFO DAGScheduler: Parents of final stage: List()
+19/06/07 12:12:36 INFO DAGScheduler: Missing parents: List()
+19/06/07 12:12:36 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[10] at map at CoordinateMatrix.scala:158), which has no missing parents
+19/06/07 12:12:36 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 13.3 KB, free 413.9 MB)
+19/06/07 12:12:36 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.6 KB, free 413.9 MB)
+19/06/07 12:12:36 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on spark-master:36159 (size: 7.6 KB, free: 413.9 MB)
+19/06/07 12:12:36 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1161
+19/06/07 12:12:36 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 1 (MapPartitionsRDD[10] at map at CoordinateMatrix.scala:158) (first 15 tasks are for partitions Vector(0, 1))
+19/06/07 12:12:36 INFO TaskSchedulerImpl: Adding task set 1.0 with 2 tasks
+19/06/07 12:12:36 WARN TaskSetManager: Stage 1 contains a task of very large size (385 KB). The maximum recommended task size is 100 KB.
+19/06/07 12:12:36 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, 10.244.4.22, executor 0, partition 0, PROCESS_LOCAL, 394853 bytes)
+19/06/07 12:12:37 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.244.4.22:43165 (size: 7.6 KB, free: 3.3 GB)
+19/06/07 12:12:38 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2, 10.244.4.22, executor 0, partition 1, PROCESS_LOCAL, 386337 bytes)
+19/06/07 12:12:38 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 1071 ms on 10.244.4.22 (executor 0) (1/2)
+19/06/07 12:12:38 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 156 ms on 10.244.4.22 (executor 0) (2/2)
+19/06/07 12:12:38 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+19/06/07 12:12:38 INFO DAGScheduler: ResultStage 1 (reduce at CoordinateMatrix.scala:158) finished in 1.290 s
+19/06/07 12:12:38 INFO DAGScheduler: Job 1 finished: reduce at CoordinateMatrix.scala:158, took 1.306376 s
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 51
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 28
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 33
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 27
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 38
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 29
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 48
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 46
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 45
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 36
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 34
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 50
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 42
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 35
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 44
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 40
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 43
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 37
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 49
+19/06/07 12:12:38 INFO ContextCleaner: Cleaned accumulator 32
+19/06/07 12:12:38 INFO SparkUI: Stopped Spark web UI at http://spark-master:4040
+19/06/07 12:12:38 INFO BlockManagerInfo: Removed broadcast_1_piece0 on spark-master:36159 in memory (size: 7.6 KB, free: 413.9 MB)
+19/06/07 12:12:38 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 10.244.4.22:43165 in memory (size: 7.6 KB, free: 3.3 GB)
+19/06/07 12:12:38 INFO StandaloneSchedulerBackend: Shutting down all executors
+19/06/07 12:12:38 INFO CoarseGrainedSchedulerBackend$DriverEndpoint: Asking each executor to shut down
+19/06/07 12:12:38 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+19/06/07 12:12:38 INFO MemoryStore: MemoryStore cleared
+19/06/07 12:12:38 INFO BlockManager: BlockManager stopped
+19/06/07 12:12:38 INFO BlockManagerMaster: BlockManagerMaster stopped
+19/06/07 12:12:38 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+19/06/07 12:12:38 INFO SparkContext: Successfully stopped SparkContext
+19/06/07 12:12:39 INFO ShutdownHookManager: Shutdown hook called
+19/06/07 12:12:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-cc1440cb-1a43-4df6-b03c-0b565ccb0c73
+19/06/07 12:12:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-5d2b2181-98c5-4289-956a-445f4584e34c
+19/06/07 12:12:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-5d2b2181-98c5-4289-956a-445f4584e34c/pyspark-e97ee82c-9db0-45b8-a1cd-91e67cee74e6
